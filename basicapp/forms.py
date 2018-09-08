@@ -2,13 +2,8 @@ from django import forms
 from django.core import validators
 
 
-def check_for_z(value):
-    if value[0] != 'z':
-        raise forms.ValidationError("Name needs to start with z!")
-
-
 class FormName(forms.Form):
-    name = forms.CharField(validators=[check_for_z])
+    name = forms.CharField()
     email = forms.EmailField()
     verify_email = forms.EmailField(label="Enter your Email again")
     text = forms.CharField(widget=forms.Textarea)
